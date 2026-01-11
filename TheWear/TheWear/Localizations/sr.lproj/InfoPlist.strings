@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear treba da zna vašu lokaciju da bi pružio najtačniju prognozu.";
 NSLocationUsageDescription = "TheWear treba da zna vašu lokaciju da bi pružio najtačniju prognozu.";
 NSLocationWhenInUseUsageDescription = "TheWear treba da zna vašu lokaciju da bi pružio najtačniju prognozu.";
+NSUserTrackingUsageDescription = "Ovo nam pomaže da vam pružimo personalizovane oglase na osnovu vaših interesa.";

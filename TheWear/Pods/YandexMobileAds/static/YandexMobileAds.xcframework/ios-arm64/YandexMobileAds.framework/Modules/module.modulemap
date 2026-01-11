@@ -1,0 +1,11 @@
+framework module YandexMobileAds {
+  umbrella header "YandexMobileAds.h"
+
+  export *
+  module * { export * }
+}
+
+module YandexMobileAds.Swift {
+  header "YandexMobileAds-Swift.h"
+  requires objc
+}

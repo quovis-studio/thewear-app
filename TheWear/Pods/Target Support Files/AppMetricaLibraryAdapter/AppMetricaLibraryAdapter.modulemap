@@ -1,0 +1,6 @@
+framework module AppMetricaLibraryAdapter {
+  umbrella header "AppMetricaLibraryAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

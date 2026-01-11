@@ -1,0 +1,136 @@
+import Foundation
+import Serialization
+import VGSL
+
+public struct DivTemplates: Deserializable, @unchecked Sendable {
+  public static let empty = DivTemplates(dictionary: [:])
+
+  public let templates: [TemplateName: Any]
+  public let templateToType: [TemplateName: String]
+
+  public init(
+    templates: [TemplateName: Any],
+    templatesToType: [TemplateName: String]
+  ) {
+    self.templates = templates
+    self.templateToType = templatesToType
+  }
+
+  public init(dictionary: [String: Any]) {
+    templateToType = calculateTemplateToType(in: dictionary)
+
+    let templatesByType = mapTemplatesByType(
+      templatesDictionary: dictionary,
+      templateToType: templateToType
+    )
+
+    let untypedTemplatesByType = templatesByType.mapValues { $0.value }
+
+    templates = resolveTemplates(
+      templatesByType: templatesByType,
+      untypedTemplatesByType: untypedTemplatesByType
+    )
+  }
+}
+
+extension DivTemplates {
+  public init(
+    templatesToResolve: [String: Any],
+    allTemplates: [String: Any]
+  ) {
+    templateToType = calculateTemplateToType(in: allTemplates)
+
+    let templatesByType = mapTemplatesByType(
+      templatesDictionary: templatesToResolve,
+      templateToType: templateToType
+    )
+
+    let untypedTemplatesByType = templatesByType.mapValues { $0.value }
+
+    templates = resolveTemplates(
+      templatesByType: templatesByType,
+      untypedTemplatesByType: untypedTemplatesByType
+    )
+  }
+
+  public func parseValue<T: TemplateValue>(
+    type _: T.Type,
+    from dict: [String: Any]
+  ) -> DeserializationResult<T.ResolvedValue> {
+    let context = TemplatesContext(
+      templates: templates,
+      templateToType: templateToType,
+      templateData: dict
+    )
+    return T.resolveValue(context: context, parent: nil, useOnlyLinks: false)
+  }
+
+  public func resolve(
+    newTemplates: [String: Any],
+    shouldKeepExistingOnConflict: Bool = true
+  ) -> DivTemplates {
+    var newTemplates = newTemplates
+    let alreadyResolvedTemplateTypes = if shouldKeepExistingOnConflict {
+      Set(templates.keys)
+    } else {
+      Set(templates.keys).subtracting(Set(newTemplates.keys))
+    }
+
+    for alreadyResolvedTemplateType in alreadyResolvedTemplateTypes {
+      newTemplates[alreadyResolvedTemplateType] = [
+        "type": self.templateToType[alreadyResolvedTemplateType] ?? "",
+      ]
+    }
+
+    let newTemplateToType = calculateTemplateToType(in: newTemplates)
+
+    let templatesByType = mapTemplatesByType(
+      templatesDictionary: newTemplates.filter { key, _ in
+        !alreadyResolvedTemplateTypes.contains(key)
+      },
+      templateToType: newTemplateToType
+    )
+
+    let untypedTemplatesByType = templatesByType.mapValues { $0.value }
+      .merging(
+        templates,
+        uniquingKeysWith: { shouldKeepExistingOnConflict ? $1 : $0 }
+      )
+
+    return DivTemplates(
+      templates: resolveTemplates(
+        templatesByType: templatesByType,
+        untypedTemplatesByType: untypedTemplatesByType
+      ).merging(
+        templates,
+        uniquingKeysWith: { shouldKeepExistingOnConflict ? $1 : $0 }
+      ),
+      templatesToType: newTemplateToType
+    )
+  }
+}
+
+private func mapTemplatesByType(
+  templatesDictionary: [String: Any],
+  templateToType: [TemplateName: String]
+) -> [TemplateName: DivTemplate] {
+  Dictionary(
+    templatesDictionary.keys.compactMap { [templateToType] key in
+      guard let divTemplate: DivTemplate = try? templatesDictionary.getField(
+        key,
+        templateToType: templateToType
+      ) else { return nil }
+      return (key, divTemplate)
+    },
+    uniquingKeysWith: Combine.lastWithAssertionFailure
+  )
+}
+
+private func resolveTemplates(
+  templatesByType: [TemplateName: DivTemplate],
+  untypedTemplatesByType: [TemplateName: Any]
+) -> [TemplateName: Any] {
+  templatesByType.compactMapValues {
+    try? $0.resolveParent(templates: untypedTemplatesByType).value
+  }
+}

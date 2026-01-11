@@ -1,0 +1,6 @@
+framework module AppMetricaScreenshot {
+  umbrella header "AppMetricaScreenshot-umbrella.h"
+
+  export *
+  module * { export * }
+}

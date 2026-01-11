@@ -1,0 +1,6 @@
+framework module VGSLFundamentals {
+  umbrella header "VGSLFundamentals-umbrella.h"
+
+  export *
+  module * { export * }
+}

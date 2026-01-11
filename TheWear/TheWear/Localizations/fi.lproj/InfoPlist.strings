@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWearin on tiedettävä sijaintisi, jotta se voi tarjota mahdollisimman tarkan ennusteen.";
 NSLocationUsageDescription = "TheWearin on tiedettävä sijaintisi, jotta se voi tarjota mahdollisimman tarkan ennusteen.";
 NSLocationWhenInUseUsageDescription = "TheWearin on tiedettävä sijaintisi, jotta se voi tarjota mahdollisimman tarkan ennusteen.";
+NSUserTrackingUsageDescription = "Tämä auttaa meitä tarjoamaan sinulle kiinnostuksesi mukaisia personoituja mainoksia.";

@@ -6,15 +6,15 @@
 */
 
 import Foundation
-import YandexMobileMetrica
+import AppMetricaCore
 
 class AnalyticsService {
     
     static let shared = AnalyticsService()
     
     func configure() {
-        guard let configuration = YMMYandexMetricaConfiguration.init(apiKey: getAPIKey()) else { return }
-        YMMYandexMetrica.activate(with: configuration)
+        guard let configuration = AppMetricaConfiguration(apiKey: getAPIKey()) else { return }
+        AppMetrica.activate(with: configuration)
     }
     
     private func getAPIKey() -> String {
@@ -27,13 +27,9 @@ class AnalyticsService {
     
     func sendEvent(_ event: Event) {
         #if DEBUG
-        #else
-        let parameters: [AnyHashable : Any] = [:]
-        YMMYandexMetrica.reportEvent(event.rawValue, parameters: parameters, onFailure: { (error) in
-            print("DID FAIL REPORT EVENT: %@", error.localizedDescription)
-            return
-        })
         print("event \(event) sent")
+        #else
+        AppMetrica.reportEvent(name: event.rawValue)
         #endif
     }
     

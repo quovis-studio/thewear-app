@@ -1,6 +1,6 @@
 /*
  
- Copyright © 2022 Max Reshetov, Valentina Selezneva.
+ Copyright © 2026 Max Reshetov, Valentina Selezneva.
  All rights reserved.
  
 */
@@ -52,14 +52,26 @@ extension WeatherView {
         partsViewHeightConstraint.isActive = true
     }
     
+    func configureAdView() {
+        contentView.addSubview(adView)
+        adView.constraints(
+            top: isIphone ? partsView.bottom(Size.padding.small) : contentView.top,
+            left: isIphone ? contentView.left : partsView.right(Size.padding.small),
+            width: .equalToConstant(hoursSize.width)
+        )
+        adViewHeightConstraint = adView.heightAnchor.constraint(equalToConstant: 0)
+        adViewHeightConstraint.isActive = true
+    }
+    
     func configureHoursView() {
         contentView.addSubview(hoursView)
         hoursView.constraints(
-            top: isIphone ? partsView.bottom(Size.padding.small) : contentView.top,
             left: isIphone ? contentView.left : partsView.right(Size.padding.small),
             width: .equalToConstant(hoursSize.width),
             height: .equalToConstant(hoursSize.height)
         )
+        hoursViewTopConstraint = hoursView.topAnchor.constraint(equalTo: adView.bottomAnchor, constant: 0)
+        hoursViewTopConstraint.isActive = true
     }
     
     func configureForecastView() {

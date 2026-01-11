@@ -7,6 +7,8 @@ target 'TheWear' do
 
   # Pods for TheWear
   pod 'Alamofire'
-  pod 'YandexMobileMetrica', '4.2.0'
-
+  pod 'YandexMobileAds', '7.18.1'
+  pod 'YandexMobileAdsInstream', '0.63.0'
+  pod 'AppMetricaAnalytics', '~> 5.14.0'
+  
 end

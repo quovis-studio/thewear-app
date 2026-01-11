@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear ismernie kell az Ön tartózkodási helyét a legpontosabb előrejelzés biztosításához.";
 NSLocationUsageDescription = "TheWear ismernie kell az Ön tartózkodási helyét a legpontosabb előrejelzés biztosításához.";
 NSLocationWhenInUseUsageDescription = "TheWear ismernie kell az Ön tartózkodási helyét a legpontosabb előrejelzés biztosításához.";
+NSUserTrackingUsageDescription = "Ez segít nekünk személyre szabott hirdetések biztosításában az érdeklődési köre alapján.";

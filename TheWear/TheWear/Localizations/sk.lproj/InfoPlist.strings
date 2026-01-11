@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear potrebuje poznať vašu polohu, aby mohol poskytnúť čo najpresnejšiu predpoveď.";
 NSLocationUsageDescription = "TheWear potrebuje poznať vašu polohu, aby mohol poskytnúť čo najpresnejšiu predpoveď.";
 NSLocationWhenInUseUsageDescription = "TheWear potrebuje poznať vašu polohu, aby mohol poskytnúť čo najpresnejšiu predpoveď.";
+NSUserTrackingUsageDescription = "Pomáha nám poskytovať vám personalizované reklamy na základe vašich záujmov.";

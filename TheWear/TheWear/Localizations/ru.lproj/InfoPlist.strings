@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear будет использовать вашу геопозицию для наиболее точных прогнозов погоды.";
 NSLocationUsageDescription = "TheWear будет использовать вашу геопозицию для наиболее точных прогнозов погоды.";
 NSLocationWhenInUseUsageDescription = "TheWear будет использовать вашу геопозицию для наиболее точных прогнозов погоды.";
+NSUserTrackingUsageDescription = "Это поможет нам показывать вам персонализированную рекламу, основанную на ваших интересах.";

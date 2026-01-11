@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear'ın en doğru tahmini sağlayabilmesi için konumunuzu bilmesi gerekir.";
 NSLocationUsageDescription = "TheWear'ın en doğru tahmini sağlayabilmesi için konumunuzu bilmesi gerekir.";
 NSLocationWhenInUseUsageDescription = "TheWear'ın en doğru tahmini sağlayabilmesi için konumunuzu bilmesi gerekir.";
+NSUserTrackingUsageDescription = "İlgi alanlarınıza göre kişiselleştirilmiş reklamlar sunmamıza yardımcı olur.";

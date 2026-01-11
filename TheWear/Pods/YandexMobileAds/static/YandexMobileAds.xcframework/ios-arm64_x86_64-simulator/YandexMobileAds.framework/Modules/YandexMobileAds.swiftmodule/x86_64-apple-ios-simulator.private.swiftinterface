@@ -1,0 +1,1552 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name YandexMobileAds
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import AVFoundation
+import CoreLocation
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+@_exported import YandexMobileAds
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdInfo) @objcMembers final public class AdInfo : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var adUnitId: Swift.String {
+    @objc get
+  }
+  @objc @available(*, deprecated, message: "`info` property is deprecated. Use `adAttributes` property of ad class instead.")
+  final public var data: Swift.String? {
+    @objc get
+  }
+  @objc final public var adSize: YandexMobileAds.AdSize? {
+    @objc get
+  }
+  @objc final public var creatives: [YandexMobileAds.Creative] {
+    @objc get
+  }
+  @objc(initWithAdUnitId:adSize:) convenience public init(adUnitId: Swift.String, adSize: YandexMobileAds.AdSize?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdRequestError) @objcMembers final public class AdRequestError : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var adUnitId: Swift.String? {
+    @objc get
+  }
+  @objc final public var error: any Swift.Error {
+    @objc get
+  }
+  @objc(initWithAdUnitId:error:) convenience public init(adUnitId: Swift.String?, error: any Swift.Error)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdSize) @objcMembers final public class AdSize : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var width: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc final public var height: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc(initWithSize:) convenience public init(size: CoreFoundation.CGSize)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAAdView) @objcMembers @_Concurrency.MainActor @preconcurrency public class AdView : UIKit.UIView {
+  @objc @_Concurrency.MainActor @preconcurrency public var adUnitID: Swift.String {
+    @objc get
+  }
+  @objc @available(*, deprecated, message: "`info` property is deprecated. Use `adAttributes` property instead.")
+  @_Concurrency.MainActor @preconcurrency public var info: Swift.String? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency public var adAttributes: [YandexMobileAds.AdAttributes] {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency public var adInfo: YandexMobileAds.AdInfo? {
+    @objc get
+  }
+  @objc @available(*, deprecated, message: "`videoController` property will be removed in future versions.")
+  @_Concurrency.MainActor @preconcurrency public var videoController: YandexMobileAds.VideoController {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency weak public var delegate: (any YandexMobileAds.AdViewDelegate)?
+  @objc @_Concurrency.MainActor @preconcurrency convenience public init(adUnitID: Swift.String, adSize: YandexMobileAds.BannerAdSize)
+  @objc(displayAtTopInView:) @_Concurrency.MainActor @preconcurrency public func displayAtTop(in view: UIKit.UIView)
+  @objc(displayAtBottomInView:) @_Concurrency.MainActor @preconcurrency public func displayAtBottom(in view: UIKit.UIView)
+  @objc @_Concurrency.MainActor @preconcurrency public func loadAd()
+  @objc(loadAdWithRequest:) @_Concurrency.MainActor @preconcurrency public func loadAd(with request: YandexMobileAds.AdRequest?)
+  @objc @_Concurrency.MainActor @preconcurrency public func adContentSize() -> CoreFoundation.CGSize
+  @objc deinit
+}
+extension YandexMobileAds.AdView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+}
+@objc(YMAAdViewDelegate) public protocol AdViewDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func viewControllerForPresentingModalView() -> UIKit.UIViewController?
+  @objc optional func adViewDidLoad(_ adView: YandexMobileAds.AdView)
+  @objc optional func adViewDidFailLoading(_ adView: YandexMobileAds.AdView, error: any Swift.Error)
+  @objc optional func adViewDidClick(_ adView: YandexMobileAds.AdView)
+  @objc optional func adViewWillLeaveApplication(_ adView: YandexMobileAds.AdView)
+  @objc optional func adView(_ adView: YandexMobileAds.AdView, willPresentScreen viewController: UIKit.UIViewController?)
+  @objc optional func adView(_ adView: YandexMobileAds.AdView, didDismissScreen viewController: UIKit.UIViewController?)
+  @objc(adView:didTrackImpressionWithData:) optional func adView(_ adView: YandexMobileAds.AdView, didTrackImpression impressionData: (any YandexMobileAds.ImpressionData)?)
+  @objc(closeAdView:) optional func close(_ adView: YandexMobileAds.AdView)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAppOpenAd) @objcMembers public class AppOpenAd : ObjectiveC.NSObject {
+  @objc final public let adInfo: YandexMobileAds.AdInfo?
+  @objc final public let adAttributes: [YandexMobileAds.AdAttributes]
+  @objc weak public var delegate: (any YandexMobileAds.AppOpenAdDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc(showFromViewController:) public func show(from viewController: UIKit.UIViewController?)
+  @objc deinit
+}
+@objc(YMAAppOpenAdDelegate) public protocol AppOpenAdDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func appOpenAd(_ appOpenAd: YandexMobileAds.AppOpenAd, didFailToShowWithError error: any Swift.Error)
+  @objc optional func appOpenAdDidShow(_ appOpenAd: YandexMobileAds.AppOpenAd)
+  @objc optional func appOpenAdDidDismiss(_ appOpenAd: YandexMobileAds.AppOpenAd)
+  @objc optional func appOpenAdDidClick(_ appOpenAd: YandexMobileAds.AppOpenAd)
+  @objc(appOpenAd:didTrackImpressionWithData:) optional func appOpenAd(_ appOpenAd: YandexMobileAds.AppOpenAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+}
+@_inheritsConvenienceInitializers @objc(YMAAppOpenAdLoader) @objcMembers public class AppOpenAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.AppOpenAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc(loadAdWithRequestConfiguration:) public func loadAd(with request: YandexMobileAds.AdRequestConfiguration)
+  @objc public func cancelLoading()
+  @objc deinit
+}
+@objc(YMAAppOpenAdLoaderDelegate) public protocol AppOpenAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func appOpenAdLoader(_ adLoader: YandexMobileAds.AppOpenAdLoader, didLoad appOpenAd: YandexMobileAds.AppOpenAd)
+  @objc func appOpenAdLoader(_ adLoader: YandexMobileAds.AppOpenAdLoader, didFailToLoadWithError error: YandexMobileAds.AdRequestError)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMABannerAdSize) final public class BannerAdSize : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var size: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc(fixedSizeWithWidth:height:) public static func fixedSize(withWidth width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat) -> YandexMobileAds.BannerAdSize
+  @objc(inlineSizeWithWidth:maxHeight:) public static func inlineSize(withWidth width: CoreFoundation.CGFloat, maxHeight height: CoreFoundation.CGFloat) -> YandexMobileAds.BannerAdSize
+  @objc(stickySizeWithContainerWidth:) public static func stickySize(withContainerWidth width: CoreFoundation.CGFloat) -> YandexMobileAds.BannerAdSize
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMACreative) @objcMembers final public class Creative : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var creativeID: Swift.String? {
+    @objc get
+  }
+  @objc final public var campaignID: Swift.String? {
+    @objc get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAInterstitialAd) @objcMembers public class InterstitialAd : ObjectiveC.NSObject {
+  @objc final public let adInfo: YandexMobileAds.AdInfo?
+  @objc final public let adAttributes: [YandexMobileAds.AdAttributes]
+  @objc weak public var delegate: (any YandexMobileAds.InterstitialAdDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc(showFromViewController:) public func show(from viewController: UIKit.UIViewController?)
+  @objc deinit
+}
+@objc(YMAInterstitialAdDelegate) public protocol InterstitialAdDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func interstitialAd(_ interstitialAd: YandexMobileAds.InterstitialAd, didFailToShowWithError error: any Swift.Error)
+  @objc optional func interstitialAdDidShow(_ interstitialAd: YandexMobileAds.InterstitialAd)
+  @objc optional func interstitialAdDidDismiss(_ interstitialAd: YandexMobileAds.InterstitialAd)
+  @objc optional func interstitialAdDidClick(_ interstitialAd: YandexMobileAds.InterstitialAd)
+  @objc(interstitialAd:didTrackImpressionWithData:) optional func interstitialAd(_ interstitialAd: YandexMobileAds.InterstitialAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+}
+@_inheritsConvenienceInitializers @objc(YMAInterstitialAdLoader) @objcMembers public class InterstitialAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.InterstitialAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc(loadAdWithRequestConfiguration:) public func loadAd(with request: YandexMobileAds.AdRequestConfiguration)
+  @objc public func cancelLoading()
+  @objc deinit
+}
+@objc(YMAInterstitialAdLoaderDelegate) public protocol InterstitialAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func interstitialAdLoader(_ adLoader: YandexMobileAds.InterstitialAdLoader, didLoad interstitialAd: YandexMobileAds.InterstitialAd)
+  @objc func interstitialAdLoader(_ adLoader: YandexMobileAds.InterstitialAdLoader, didFailToLoadWithError error: YandexMobileAds.AdRequestError)
+}
+@objc(YMAReward) public protocol Reward : ObjectiveC.NSObjectProtocol, Swift.Sendable {
+  @objc var amount: Swift.Int { get }
+  @objc var type: Swift.String { get }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMARewardedAd) @objcMembers public class RewardedAd : ObjectiveC.NSObject {
+  @objc final public let adInfo: YandexMobileAds.AdInfo?
+  @objc final public let adAttributes: [YandexMobileAds.AdAttributes]
+  @objc weak public var delegate: (any YandexMobileAds.RewardedAdDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc(showFromViewController:) public func show(from viewController: UIKit.UIViewController?)
+  @objc deinit
+}
+@objc(YMARewardedAdDelegate) public protocol RewardedAdDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func rewardedAd(_ rewardedAd: YandexMobileAds.RewardedAd, didReward reward: any YandexMobileAds.Reward)
+  @objc optional func rewardedAd(_ rewardedAd: YandexMobileAds.RewardedAd, didFailToShowWithError error: any Swift.Error)
+  @objc optional func rewardedAdDidShow(_ rewardedAd: YandexMobileAds.RewardedAd)
+  @objc optional func rewardedAdDidDismiss(_ rewardedAd: YandexMobileAds.RewardedAd)
+  @objc optional func rewardedAdDidClick(_ rewardedAd: YandexMobileAds.RewardedAd)
+  @objc optional func rewardedAd(_ rewardedAd: YandexMobileAds.RewardedAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+}
+@_inheritsConvenienceInitializers @objc(YMARewardedAdLoader) @objcMembers public class RewardedAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.RewardedAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc(loadAdWithRequestConfiguration:) public func loadAd(with request: YandexMobileAds.AdRequestConfiguration)
+  @objc public func cancelLoading()
+  @objc deinit
+}
+@objc(YMARewardedAdLoaderDelegate) public protocol RewardedAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func rewardedAdLoader(_ adLoader: YandexMobileAds.RewardedAdLoader, didLoad rewardedAd: YandexMobileAds.RewardedAd)
+  @objc func rewardedAdLoader(_ adLoader: YandexMobileAds.RewardedAdLoader, didFailToLoadWithError error: YandexMobileAds.AdRequestError)
+}
+@_inheritsConvenienceInitializers @available(*, deprecated, message: "VideoController will be removed in future versions.")
+@objc(YMAVideoController) @objcMembers public class VideoController : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.VideoDelegate)?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@available(*, deprecated, message: "VideoDelegate will be removed in future versions.")
+@objc(YMAVideoDelegate) public protocol VideoDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func videoControllerDidFinishPlayingVideo(_ videoController: YandexMobileAds.VideoController)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdRequest) @objcMembers public class AdRequest : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var age: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var contextQuery: Swift.String? {
+    @objc get
+  }
+  @objc public var contextTags: [Swift.String]? {
+    @objc get
+  }
+  @objc public var gender: Swift.String? {
+    @objc get
+  }
+  @objc public var location: CoreLocation.CLLocation? {
+    @objc get
+  }
+  @objc public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+  }
+  @objc public var biddingData: Swift.String? {
+    @objc get
+  }
+  @objc public var headerBiddingData: Swift.String? {
+    @objc get
+  }
+  @objc public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+  }
+  @objc public var mutableRequest: YandexMobileAds.MutableAdRequest {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableRequest` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdRequestConfiguration) @objcMembers public class AdRequestConfiguration : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var adUnitID: Swift.String {
+    @objc get
+  }
+  @objc public var age: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var contextQuery: Swift.String? {
+    @objc get
+  }
+  @objc public var contextTags: [Swift.String]? {
+    @objc get
+  }
+  @objc public var gender: Swift.String? {
+    @objc get
+  }
+  @objc public var location: CoreLocation.CLLocation? {
+    @objc get
+  }
+  @objc public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+  }
+  @objc public var biddingData: Swift.String? {
+    @objc get
+  }
+  @objc public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+  }
+  @objc public var mutableConfiguration: YandexMobileAds.MutableAdRequestConfiguration {
+    @objc get
+  }
+  @objc(initWithAdUnitID:) convenience public init(adUnitID: Swift.String)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableConfiguration` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdTargetInfo) @objcMembers public class AdTargetInfo : ObjectiveC.NSObject {
+  @objc public var age: Foundation.NSNumber?
+  @objc public var gender: Swift.String?
+  @objc public var location: CoreLocation.CLLocation?
+  @objc public var contextQuery: Swift.String?
+  @objc public var contextTags: [Swift.String]?
+  @objc deinit
+}
+@objc(YMAImpressionData) public protocol ImpressionData : Foundation.NSCoding, ObjectiveC.NSObjectProtocol, Swift.Sendable {
+  @objc var rawData: Swift.String { get }
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableAdRequest) @objcMembers public class MutableAdRequest : YandexMobileAds.AdRequest {
+  @objc override public var age: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextQuery: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextTags: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc override public var gender: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var location: CoreLocation.CLLocation? {
+    @objc get
+    @objc set
+  }
+  @objc override public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+    @objc set
+  }
+  @objc override public var biddingData: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var headerBiddingData: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc public var request: YandexMobileAds.AdRequest {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `request` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableAdRequestConfiguration) @objcMembers public class MutableAdRequestConfiguration : YandexMobileAds.AdRequestConfiguration {
+  @objc override public var age: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextQuery: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextTags: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc override public var gender: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var location: CoreLocation.CLLocation? {
+    @objc get
+    @objc set
+  }
+  @objc override public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+    @objc set
+  }
+  @objc override public var biddingData: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc public var request: YandexMobileAds.AdRequestConfiguration {
+    @objc get
+  }
+  @objc convenience public init(adUnitID: Swift.String)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `request` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAAdAttributes) @objcMembers public class AdAttributes : ObjectiveC.NSObject {
+  @objc public var campaignID: Swift.String? {
+    @objc get
+  }
+  @objc public var bannerID: Swift.String? {
+    @objc get
+  }
+  @objc public var placeID: Swift.String? {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(YMAAdErrorCode) public enum AdErrorCode : Swift.Int, Swift.Sendable {
+  case emptyAdUnitID
+  case invalidUUID
+  case noSuchAdUnitID
+  case noFill
+  case badServerResponse
+  case adSizeMismatch
+  case adTypeMismatch
+  case serviceTemporarilyNotAvailable
+  case adHasAlreadyBeenPresented
+  case nilPresentingViewController
+  case incorrectFullscreenView
+  case invalidSDKConfiguration
+  case missingSKAdNetworkIdentifier
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Foundation.NSError {
+  @objc dynamic public var isYandexMobileAdsError: Swift.Bool {
+    @objc get
+  }
+}
+extension Swift.Error {
+  public var isYandexMobileAdsError: Swift.Bool {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(YMAAdRequestTokenConfiguration) @objcMembers final public class AdRequestTokenConfiguration : ObjectiveC.NSObject {
+  final public let adType: YandexMobileAds.AdType?
+  @objc final public let targetInfo: YandexMobileAds.AdTargetInfo
+  @objc final public let bannerAdSize: YandexMobileAds.BannerAdSize?
+  @objc final public let parameters: [Swift.String : Swift.String]?
+  public init(adType: YandexMobileAds.AdType? = nil, bannerAdSize: YandexMobileAds.BannerAdSize? = nil, parameters: [Swift.String : Swift.String]? = nil)
+  @objc deinit
+}
+public typealias YMAAdRequestTokenLoaderCompletion = (Swift.String?) -> Swift.Void
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAdRequestTokenLoader) @objcMembers final public class AdRequestTokenLoader : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc override convenience dynamic public init()
+  @objc final public func loadRequestToken(requestConfiguration: YandexMobileAds.AdRequestTokenConfiguration, completionHandler: @escaping YandexMobileAds.YMAAdRequestTokenLoaderCompletion)
+  @nonobjc final public func loadRequestToken(requestConfiguration: YandexMobileAds.AdRequestTokenConfiguration) async -> Swift.String?
+  @objc deinit
+}
+@objc(YMAAdTheme) public enum AdTheme : Swift.Int, Swift.Sendable {
+  case unspecified
+  case light
+  case dark
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(YMAAdType) public enum AdType : Swift.Int, Swift.Sendable {
+  case banner
+  case interstitial
+  case rewarded
+  case native
+  case appOpenAd
+  @_spi(RetailMedia) case retailMedia
+  public var underlying: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAAudioSessionManager) @objcMembers public class AudioSessionManager : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.AudioSessionManagerDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc public var isAutomaticallyManaged: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@objc(YMAAudioSessionManagerDelegate) public protocol AudioSessionManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func audioSessionManagerWillPlayAudio(_ audioSessionManager: YandexMobileAds.AudioSessionManager)
+  @objc func audioSessionManagerDidStopPlayingAudio(_ audioSessionManager: YandexMobileAds.AudioSessionManager)
+}
+public typealias YMABidderTokenLoaderCompletion = (Swift.String?) -> Swift.Void
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMABidderTokenLoader) @objcMembers final public class BidderTokenLoader : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc convenience public init(mediationNetworkName: Swift.String)
+  @available(*, deprecated, message: "Use init(mediationNetworkName:) instead.")
+  @objc override convenience dynamic public init()
+  @objc final public func loadBidderToken(requestConfiguration: YandexMobileAds.BidderTokenRequestConfiguration, completionHandler: @escaping YandexMobileAds.YMABidderTokenLoaderCompletion)
+  @_spi(RetailMedia) @nonobjc final public func loadBidderToken(requestConfiguration: YandexMobileAds.BidderTokenRequestConfiguration) async -> Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMABidderTokenRequestConfiguration) @objcMembers public class BidderTokenRequestConfiguration : ObjectiveC.NSObject {
+  @objc final public let adType: YandexMobileAds.AdType
+  @objc final public let targetInfo: YandexMobileAds.AdTargetInfo
+  @objc @available(*, deprecated, message: "Use the factory method banner(size:) instead.")
+  public var bannerAdSize: YandexMobileAds.BannerAdSize? {
+    @objc get
+    @objc set
+  }
+  @objc public var parameters: [Swift.String : Swift.String]?
+  @objc public static func banner(size: YandexMobileAds.BannerAdSize) -> YandexMobileAds.BidderTokenRequestConfiguration
+  @objc public static func interstitial() -> YandexMobileAds.BidderTokenRequestConfiguration
+  @objc public static func rewarded() -> YandexMobileAds.BidderTokenRequestConfiguration
+  @objc public static func native() -> YandexMobileAds.BidderTokenRequestConfiguration
+  @objc public static func appOpenAd() -> YandexMobileAds.BidderTokenRequestConfiguration
+  @objc @available(*, deprecated, message: "Use factory methods instead: banner(size:), interstitial(), rewarded(), native() or appOpenAd().")
+  convenience public init(adType: YandexMobileAds.AdType)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMADeviceType) @objcMembers final public class DeviceType : ObjectiveC.NSObject, Swift.OptionSet, Swift.Sendable {
+  @objc final public var rawValue: Swift.UInt {
+    @objc get
+  }
+  @objc override required convenience dynamic public init()
+  @objc required convenience public init(rawValue: Swift.UInt)
+  @objc public static let none: YandexMobileAds.DeviceType
+  @objc public static let hardware: YandexMobileAds.DeviceType
+  @objc public static let simulator: YandexMobileAds.DeviceType
+  public typealias ArrayLiteralElement = YandexMobileAds.DeviceType
+  public typealias Element = YandexMobileAds.DeviceType
+  public typealias RawValue = Swift.UInt
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAMobileAds) @objcMembers public class MobileAds : ObjectiveC.NSObject {
+  @objc public static func enableLogging()
+  @objc public static func sdkVersion() -> Swift.String
+  @objc public static func audioSessionManager() -> YandexMobileAds.AudioSessionManager
+  @objc public static func setLocationTrackingEnabled(_ enabled: Swift.Bool)
+  @objc dynamic public static func setAgeRestrictedUser(_ restricted: Swift.Bool)
+  @objc(enableVisibilityErrorIndicatorForDeviceType:) public static func enableVisibilityErrorIndicator(for deviceType: YandexMobileAds.DeviceType)
+  @objc public static func setUserConsent(_ consent: Swift.Bool)
+  @objc public static func initializeSDK(completionHandler: (() -> Swift.Void)? = nil)
+  @objc public static func showDebugPanel()
+  @objc public static func setAppAdAnalyticsReportingEnabled(_ enabled: Swift.Bool = true)
+  @_spi(Analytics) @objc public static func setAppMetricaEasyIntegrationEnabled(_ enabled: Swift.Bool = true)
+  @_spi(Analytics) @nonobjc public static func setAppMetricaAnalyticsEnabled(_ enabled: Swift.Bool = true)
+  public static let consentManagementPlatform: YandexMobileAds.ConsentManagementPlatform
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAVersion) @objcMembers final public class Version : ObjectiveC.NSObject, Swift.Sendable {
+  @objc(currentVersion) public static let current: YandexMobileAds.Version
+  @objc final public let major: Swift.Int
+  @objc final public let minor: Swift.Int
+  @objc final public let patch: Swift.Int
+  @objc final public let prereleaseIdentifiers: [Swift.String]
+  @objc final public let buildMetadataIdentifiers: [Swift.String]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class ConsentManagementPlatform {
+  final public func setConsentFormPresentation(enabled: Swift.Bool)
+  final public func presentConsentFormIfRequired(completion: @escaping (YandexMobileAds.ConsentManagementPresentationResult) -> Swift.Void)
+  final public func resetConsentStatus()
+  final public func setDebugParameters(_ parameters: YandexMobileAds.ConsentManagementPlatformDebugParameters)
+  @objc deinit
+}
+public struct ConsentManagementPlatformDebugParameters : Swift.Sendable {
+  public var testDeviceIdentifiers: [Swift.String]?
+  public var geography: YandexMobileAds.ConsentManagementPlatformDebugParameters.Geography
+  public init(testDeviceIdentifiers: [Swift.String]? = nil, geography: YandexMobileAds.ConsentManagementPlatformDebugParameters.Geography = .other)
+  public enum Geography : Swift.String, Swift.Sendable {
+    case eea
+    case us
+    case other
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public enum ConsentManagementPresentationResult : Swift.Sendable {
+  case success
+  case notRequired
+  case presentationDisabled
+  case failure(any Swift.Error)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAButtonAppearance) @objcMembers public class ButtonAppearance : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var textAppearance: YandexMobileAds.LabelAppearance {
+    @objc get
+  }
+  @objc public var highlightedTextColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var normalColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var highlightedColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var borderColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public var mutableAppearance: YandexMobileAds.MutableButtonAppearance {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(textAppearance: YandexMobileAds.LabelAppearance, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat)
+  @objc required convenience public init(textAppearance: YandexMobileAds.LabelAppearance, highlightedTextColor: UIKit.UIColor, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat)
+  @objc public static func appearanceWithTextAppearance(_ textAppearance: YandexMobileAds.LabelAppearance, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat) -> Self
+  @objc public static func appearanceWithTextAppearance(_ textAppearance: YandexMobileAds.LabelAppearance, highlightedTextColor: UIKit.UIColor, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat) -> Self
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableAppearance` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMAImageAppearance) @objcMembers public class ImageAppearance : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var widthConstraint: YandexMobileAds.SizeConstraint {
+    @objc get
+  }
+  @objc public var mutableAppearance: YandexMobileAds.MutableImageAppearance {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(widthConstraint: YandexMobileAds.SizeConstraint)
+  @objc public static func appearanceWithWidthConstraint(_ widthConstraint: YandexMobileAds.SizeConstraint) -> Self
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableAppearance` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMALabelAppearance) @objcMembers public class LabelAppearance : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var font: UIKit.UIFont {
+    @objc get
+  }
+  @objc public var textColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var mutableAppearance: YandexMobileAds.MutableLabelAppearance {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(font: UIKit.UIFont, textColor: UIKit.UIColor)
+  @objc public static func appearanceWithFont(_ font: UIKit.UIFont, textColor: UIKit.UIColor) -> Self
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableAppearance` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableButtonAppearance) @objcMembers public class MutableButtonAppearance : YandexMobileAds.ButtonAppearance {
+  @objc override public var textAppearance: YandexMobileAds.LabelAppearance {
+    @objc get
+    @objc set
+  }
+  @objc override public var highlightedTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var normalColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var highlightedColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var borderColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc public var buttonAppearance: YandexMobileAds.ButtonAppearance {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @objc required convenience public init(textAppearance: YandexMobileAds.LabelAppearance, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat)
+  @objc required convenience public init(textAppearance: YandexMobileAds.LabelAppearance, highlightedTextColor: UIKit.UIColor, normalColor: UIKit.UIColor, highlightedColor: UIKit.UIColor, borderColor: UIKit.UIColor, borderWidth: CoreFoundation.CGFloat)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `buttonAppearance` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableImageAppearance) @objcMembers public class MutableImageAppearance : YandexMobileAds.ImageAppearance {
+  @objc override public var widthConstraint: YandexMobileAds.SizeConstraint {
+    @objc get
+    @objc set
+  }
+  @objc public var imageAppearance: YandexMobileAds.ImageAppearance {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @objc required convenience public init(widthConstraint: YandexMobileAds.SizeConstraint)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `imageAppearance` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableLabelAppearance) @objcMembers public class MutableLabelAppearance : YandexMobileAds.LabelAppearance {
+  @objc override public var font: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @objc override public var textColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc public var labelAppearance: YandexMobileAds.LabelAppearance {
+    @objc get
+  }
+  @objc required convenience public init(font: UIKit.UIFont, textColor: UIKit.UIColor)
+  @objc convenience dynamic public init()
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `labelAppearance` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableRatingAppearance) @objcMembers public class MutableRatingAppearance : YandexMobileAds.RatingAppearance {
+  @objc override public var emptyStarColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var filledStarColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var preferredStarSize: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc public var ratingAppearance: YandexMobileAds.RatingAppearance {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @objc required convenience public init(emptyStarColor: UIKit.UIColor, filledStarColor: UIKit.UIColor, starSize: CoreFoundation.CGFloat)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `ratingAppearance` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableSizeConstraint) @objcMembers public class MutableSizeConstraint : YandexMobileAds.SizeConstraint {
+  @objc override public var type: YandexMobileAds.SizeConstraintType {
+    @objc get
+    @objc set
+  }
+  @objc override public var value: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc public var constraint: YandexMobileAds.SizeConstraint {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @objc required convenience public init(type: YandexMobileAds.SizeConstraintType, value: CoreFoundation.CGFloat)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `constraint` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMARatingAppearance) @objcMembers public class RatingAppearance : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var emptyStarColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var filledStarColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var preferredStarSize: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public var mutableAppearance: YandexMobileAds.MutableRatingAppearance {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(emptyStarColor: UIKit.UIColor, filledStarColor: UIKit.UIColor, starSize: CoreFoundation.CGFloat)
+  @objc public static func appearanceWithEmptyStarColor(_ emptyStarColor: UIKit.UIColor, filledStarColor: UIKit.UIColor, starSize: CoreFoundation.CGFloat) -> Self
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableAppearance` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMASizeConstraint) @objcMembers public class SizeConstraint : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var type: YandexMobileAds.SizeConstraintType {
+    @objc get
+  }
+  @objc public var value: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public var mutableConstraint: YandexMobileAds.MutableSizeConstraint {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(type: YandexMobileAds.SizeConstraintType, value: CoreFoundation.CGFloat)
+  @objc public static func constraintWithType(_ type: YandexMobileAds.SizeConstraintType, value: CoreFoundation.CGFloat) -> Self
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableConstraint` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@objc(YMASizeConstraintType) public enum SizeConstraintType : Swift.Int, Swift.Sendable {
+  case fixed
+  case fixedBannerRatio
+  case preferredBannerRatio
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableNativeAdRequestConfiguration) @objcMembers public class MutableNativeAdRequestConfiguration : YandexMobileAds.NativeAdRequestConfiguration {
+  @objc override public var age: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextQuery: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var contextTags: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc override public var gender: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var location: CoreLocation.CLLocation? {
+    @objc get
+    @objc set
+  }
+  @objc override public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+    @objc set
+  }
+  @objc override public var biddingData: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc override public var shouldLoadImagesAutomatically: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var request: YandexMobileAds.NativeAdRequestConfiguration {
+    @objc get
+  }
+  @objc convenience public init(adUnitID: Swift.String)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `request` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(YMAMutableNativeTemplateAppearance) @objcMembers public class MutableNativeTemplateAppearance : YandexMobileAds.NativeTemplateAppearance {
+  @objc override public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc override public var borderColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var backgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override public var contentPadding: YandexMobileAds.YMAHorizontalOffset {
+    @objc get
+    @objc set
+  }
+  @objc override public var imageMargins: YandexMobileAds.YMAHorizontalOffset {
+    @objc get
+    @objc set
+  }
+  @objc override public var ageAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var bodyAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var callToActionAppearance: YandexMobileAds.ButtonAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var domainAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var faviconAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var feedbackAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var imageAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var ratingAppearance: YandexMobileAds.RatingAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var sponsoredAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var titleAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var reviewCountAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc override public var warningAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+    @objc set
+  }
+  @objc public var appearance: YandexMobileAds.NativeTemplateAppearance {
+    @objc get
+  }
+  @objc convenience dynamic public init()
+  @available(*, deprecated, message: "copy(with:) is deprecated. Use `appearance` property instead.")
+  @objc override public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@objc(YMANativeAd) public protocol NativeAd : ObjectiveC.NSObjectProtocol {
+  @objc var adType: YandexMobileAds.NativeAdType { get }
+  @objc var delegate: (any YandexMobileAds.NativeAdDelegate)? { get set }
+  @objc var info: Swift.String? { get }
+  @objc var adAttributes: YandexMobileAds.AdAttributes? { get }
+  @objc var ads: [any YandexMobileAds.NativeAd] { get }
+  @objc var creativeID: Swift.String? { get }
+  @objc var campaignID: Swift.String? { get }
+  @objc func adAssets() -> YandexMobileAds.NativeAdAssets
+  @objc func loadImages()
+  @objc(addImageLoadingObserver:) func add(_ observer: any YandexMobileAds.NativeAdImageLoadingObserver)
+  @objc(removeImageLoadingObserver:) func remove(_ observer: any YandexMobileAds.NativeAdImageLoadingObserver)
+  @objc(bindWithAdView:error:) func bind(with adView: YandexMobileAds.YMANativeAdView) throws
+  @objc(bindAdToView:viewData:error:) func bindAd(to view: UIKit.UIView, viewData: YandexMobileAds.NativeAdViewData) throws
+  @objc @available(*, deprecated, message: "`bindAd(toSliderView:)` will be removed in future versions. Use `SliderAd.bind(with:)` instead.")
+  func bindAd(toSliderView sliderView: YandexMobileAds.YMANativeAdView) throws
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdAssets) @objcMembers public class NativeAdAssets : ObjectiveC.NSObject {
+  @objc public var age: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var body: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var callToAction: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var domain: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var favicon: YandexMobileAds.NativeAdImage? {
+    @objc get
+    @objc set
+  }
+  @objc public var feedbackAvailable: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var icon: YandexMobileAds.NativeAdImage? {
+    @objc get
+    @objc set
+  }
+  @objc public var image: YandexMobileAds.NativeAdImage? {
+    @objc get
+    @objc set
+  }
+  @objc public var media: YandexMobileAds.NativeAdMedia? {
+    @objc get
+    @objc set
+  }
+  @objc public var price: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var rating: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc public var reviewCount: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var sponsored: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var title: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var warning: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override convenience dynamic public init()
+  @objc deinit
+}
+@objc(YMANativeAdDelegate) public protocol NativeAdDelegate : ObjectiveC.NSObjectProtocol {
+  @available(*, deprecated, message: "`viewControllerForPresentingModalView` will be removed in future versions.")
+  @objc optional func viewControllerForPresentingModalView() -> UIKit.UIViewController?
+  @objc optional func nativeAdDidClick(_ ad: any YandexMobileAds.NativeAd)
+  @objc optional func nativeAdWillLeaveApplication(_ ad: any YandexMobileAds.NativeAd)
+  @objc optional func nativeAd(_ ad: any YandexMobileAds.NativeAd, willPresentScreen viewController: UIKit.UIViewController?)
+  @objc optional func nativeAd(_ ad: any YandexMobileAds.NativeAd, didDismissScreen viewController: UIKit.UIViewController?)
+  @objc(nativeAd:didTrackImpressionWithData:) optional func nativeAd(_ ad: any YandexMobileAds.NativeAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+  @objc(closeNativeAd:) optional func close(_ ad: any YandexMobileAds.NativeAd)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdImage) @objcMembers final public class NativeAdImage : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var size: CoreFoundation.CGSize {
+    @objc get
+  }
+  @objc final public var imageValue: UIKit.UIImage? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(YMANativeAdImageLoadingObserver) public protocol NativeAdImageLoadingObserver : ObjectiveC.NSObjectProtocol {
+  @objc func nativeAdDidFinishLoadingImages(_ ad: any YandexMobileAds.NativeAd)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdLoader) @objcMembers public class NativeAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.NativeAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override convenience dynamic public init()
+  @objc(loadAdWithRequestConfiguration:) public func loadAd(with requestConfiguration: YandexMobileAds.NativeAdRequestConfiguration)
+  @nonobjc public func loadPromoAd(with requestConfiguration: YandexMobileAds.NativeAdRequestConfiguration)
+  @objc deinit
+}
+@objc(YMANativeAdLoaderDelegate) public protocol NativeAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc(nativeAdLoader:didLoadAd:) func nativeAdLoader(_ loader: YandexMobileAds.NativeAdLoader, didLoad ad: any YandexMobileAds.NativeAd)
+  @objc(nativeAdLoader:didFailLoadingWithError:) func nativeAdLoader(_ loader: YandexMobileAds.NativeAdLoader, didFailLoadingWithError error: any Swift.Error)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdMedia) final public class NativeAdMedia : ObjectiveC.NSObject, Swift.Sendable {
+  @objc final public var aspectRatio: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdRequestConfiguration) @objcMembers public class NativeAdRequestConfiguration : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var adUnitID: Swift.String {
+    @objc get
+  }
+  @objc public var age: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var contextQuery: Swift.String? {
+    @objc get
+  }
+  @objc public var contextTags: [Swift.String]? {
+    @objc get
+  }
+  @objc public var gender: Swift.String? {
+    @objc get
+  }
+  @objc public var location: CoreLocation.CLLocation? {
+    @objc get
+  }
+  @objc public var adTheme: YandexMobileAds.AdTheme {
+    @objc get
+  }
+  @objc public var biddingData: Swift.String? {
+    @objc get
+  }
+  @objc public var parameters: [Swift.String : Swift.String]? {
+    @objc get
+  }
+  @objc public var shouldLoadImagesAutomatically: Swift.Bool {
+    @objc get
+  }
+  @objc public var mutableConfiguration: YandexMobileAds.MutableNativeAdRequestConfiguration {
+    @objc get
+  }
+  @objc(initWithAdUnitID:) convenience public init(adUnitID: Swift.String)
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableConfiguration` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@objc(YMANativeAdType) public enum NativeAdType : Swift.Int, Swift.Sendable {
+  case content
+  case appInstall
+  case media
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeAdVideoController) @objcMembers public class NativeAdVideoController : ObjectiveC.NSObject {
+  @objc override convenience dynamic public init()
+  @objc public func pause()
+  @objc public func resume()
+  @objc deinit
+}
+@objc(YMANativeAdVideoControllerProvider) public protocol NativeAdVideoControllerProvider : ObjectiveC.NSObjectProtocol {
+  @objc var videoController: YandexMobileAds.NativeAdVideoController? { get }
+}
+@_inheritsConvenienceInitializers @objc(YMANativeAdViewData) @objcMembers public class NativeAdViewData : ObjectiveC.NSObject {
+  @objc public var ageLabel: UIKit.UILabel?
+  @objc public var bodyLabel: UIKit.UILabel?
+  @objc public var callToActionButton: UIKit.UIButton?
+  @objc public var domainLabel: UIKit.UILabel?
+  @objc public var faviconImageView: UIKit.UIImageView?
+  @objc public var feedbackButton: UIKit.UIButton?
+  @objc public var iconImageView: UIKit.UIImageView?
+  @objc public var mediaView: YandexMobileAds.YMANativeMediaView?
+  @objc public var priceLabel: UIKit.UILabel?
+  @objc public var ratingView: (any UIKit.UIView & YandexMobileAds.Rating)?
+  @objc public var reviewCountLabel: UIKit.UILabel?
+  @objc public var sponsoredLabel: UIKit.UILabel?
+  @objc public var titleLabel: UIKit.UILabel?
+  @objc public var warningLabel: UIKit.UILabel?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(YMANativeBannerView) @objcMembers @_Concurrency.MainActor @preconcurrency public class NativeBannerView : UIKit.UIView {
+  @objc @_Concurrency.MainActor @preconcurrency public var ad: (any YandexMobileAds.NativeAd)? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func encode(with coder: Foundation.NSCoder)
+  @objc(applyAppearance:) @_Concurrency.MainActor @preconcurrency public func apply(_ appearance: YandexMobileAds.NativeTemplateAppearance)
+  @objc(heightWithAd:width:appearance:) @_Concurrency.MainActor @preconcurrency public static func height(with ad: any YandexMobileAds.NativeAd, width: CoreFoundation.CGFloat, appearance: YandexMobileAds.NativeTemplateAppearance?) -> CoreFoundation.CGFloat
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeBulkAdLoader) @objcMembers public class NativeBulkAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.NativeBulkAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override convenience dynamic public init()
+  @objc(loadAdsWithRequestConfiguration:adsCount:) public func loadAds(with requestConfiguration: YandexMobileAds.NativeAdRequestConfiguration, adsCount: Swift.Int)
+  @objc deinit
+}
+@objc(YMANativeBulkAdLoaderDelegate) public protocol NativeBulkAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc(nativeBulkAdLoader:didLoadAds:) func nativeBulkAdLoader(_ nativeBulkAdLoader: YandexMobileAds.NativeBulkAdLoader, didLoad ads: [any YandexMobileAds.NativeAd])
+  @objc(nativeBulkAdLoader:didFailLoadingWithError:) func nativeBulkAdLoader(_ nativeBulkAdLoader: YandexMobileAds.NativeBulkAdLoader, didFailLoadingWithError error: any Swift.Error)
+}
+@objc(YMANativeErrorCode) public enum NativeErrorCode : Swift.Int, Swift.Sendable {
+  case noViewForAsset
+  case invalidViewForBinding
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Foundation.NSError {
+  @objc dynamic public var isYandexMobileNativeAdsError: Swift.Bool {
+    @objc get
+  }
+}
+extension Swift.Error {
+  public var isYandexMobileNativeAdsError: Swift.Bool {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeTemplateAppearance) @objcMembers public class NativeTemplateAppearance : ObjectiveC.NSObject, Foundation.NSCopying, Foundation.NSMutableCopying {
+  @objc public var borderWidth: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc public var borderColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var backgroundColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc public var contentPadding: YandexMobileAds.YMAHorizontalOffset {
+    @objc get
+  }
+  @objc public var imageMargins: YandexMobileAds.YMAHorizontalOffset {
+    @objc get
+  }
+  @objc public var ageAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var bodyAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var callToActionAppearance: YandexMobileAds.ButtonAppearance? {
+    @objc get
+  }
+  @objc public var domainAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var faviconAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+  }
+  @objc public var feedbackAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+  }
+  @objc public var imageAppearance: YandexMobileAds.ImageAppearance? {
+    @objc get
+  }
+  @objc public var ratingAppearance: YandexMobileAds.RatingAppearance? {
+    @objc get
+  }
+  @objc public var sponsoredAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var titleAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var reviewCountAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var warningAppearance: YandexMobileAds.LabelAppearance? {
+    @objc get
+  }
+  @objc public var mutableAppearance: YandexMobileAds.MutableNativeTemplateAppearance {
+    @objc get
+  }
+  @objc(defaultAppearance) public static let `default`: YandexMobileAds.NativeTemplateAppearance
+  @objc override convenience dynamic public init()
+  @available(*, deprecated, message: "copy(with:) is deprecated. Will be removed in future versions.")
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @available(*, deprecated, message: "mutableCopy(with:) is deprecated. Use `mutableAppearance` property instead.")
+  @objc public func mutableCopy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMANativeVideoPlaybackControls) public class NativeVideoPlaybackControls : ObjectiveC.NSObject {
+  @objc(initWithProgressControl:muteControl:) convenience public init(progressControl: (any UIKit.UIView & YandexMobileAds.NativeVideoPlaybackProgressControl)?, muteControl: (any UIKit.UIView & YandexMobileAds.NativeVideoPlaybackMuteControl)?)
+  @objc public func setupVideoPlaybackControls(to view: YandexMobileAds.YMANativeMediaView)
+  @objc deinit
+}
+@objc(YMANativeVideoPlaybackMuteControl) public protocol NativeVideoPlaybackMuteControl : ObjectiveC.NSObjectProtocol {
+  @objc var delegate: (any YandexMobileAds.NativeVideoPlaybackMuteControlDelegate)? { get set }
+  @objc(configureWithIsMuted:) func configure(withIsMuted isMuted: Swift.Bool)
+  @objc(configureWithIsHidden:) func configure(withIsHidden isHidden: Swift.Bool)
+}
+@objc(YMANativeVideoPlaybackMuteControlDelegate) public protocol NativeVideoPlaybackMuteControlDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func muteControl(_ muteControl: any YandexMobileAds.NativeVideoPlaybackMuteControl, didChangeIsMuted isMuted: Swift.Bool)
+}
+@objc(YMANativeVideoPlaybackProgressControl) public protocol NativeVideoPlaybackProgressControl : ObjectiveC.NSObjectProtocol {
+  @objc func configure(withPosition position: Foundation.TimeInterval, duration: Foundation.TimeInterval)
+  @objc func reset()
+}
+@objc(YMARating) public protocol Rating : ObjectiveC.NSObjectProtocol {
+  @objc func setRating(_ rating: Foundation.NSNumber?)
+  @objc func rating() -> Foundation.NSNumber?
+}
+@objc(YMASliderAd) public protocol SliderAd {
+  @objc var delegate: (any YandexMobileAds.SliderAdDelegate)? { get set }
+  @objc var info: Swift.String? { get }
+  @objc var adAttributes: YandexMobileAds.AdAttributes? { get }
+  @objc var ads: [any YandexMobileAds.NativeAd] { get }
+  @objc var creativeID: Swift.String? { get }
+  @objc var campaignID: Swift.String? { get }
+  @objc func loadImages()
+  @objc(bindWithAdView:error:) func bind(with adView: YandexMobileAds.YMANativeAdView) throws
+}
+@objc(YMASliderAdDelegate) public protocol SliderAdDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func sliderAdDidClick(_ ad: any YandexMobileAds.SliderAd)
+  @objc optional func sliderAdWillLeaveApplication(_ ad: any YandexMobileAds.SliderAd)
+  @objc optional func sliderAd(_ ad: any YandexMobileAds.SliderAd, willPresentScreen viewController: UIKit.UIViewController?)
+  @objc optional func sliderAd(_ ad: any YandexMobileAds.SliderAd, didDismissScreen viewController: UIKit.UIViewController?)
+  @objc(sliderAd:didTrackImpressionWithData:) optional func sliderAd(_ ad: any YandexMobileAds.SliderAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+  @objc optional func sliderAdDidClose(_ ad: any YandexMobileAds.SliderAd)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(YMASliderAdLoader) @objcMembers public class SliderAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any YandexMobileAds.SliderAdLoaderDelegate)? {
+    @objc get
+    @objc set
+  }
+  @objc override convenience dynamic public init()
+  @objc(loadAdWithRequestConfiguration:) public func loadAd(with requestConfiguration: YandexMobileAds.NativeAdRequestConfiguration)
+  @objc deinit
+}
+@objc(YMASliderAdLoaderDelegate) public protocol SliderAdLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @objc(sliderAdLoader:didLoadAd:) func sliderAdLoader(_ loader: YandexMobileAds.SliderAdLoader, didLoad ad: any YandexMobileAds.SliderAd)
+  @objc(sliderAdLoader:didFailLoadingWithError:) func sliderAdLoader(_ loader: YandexMobileAds.SliderAdLoader, didFailLoadingWithError error: any Swift.Error)
+}
+@_spi(RetailMedia) @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CustomMediaView : UIKit.UIView {
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency weak public var customMediaView: UIKit.UIView?
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_spi(RetailMedia) @objc deinit
+}
+@_spi(RetailMedia) public protocol RetailMedia {
+  @_spi(RetailMedia) var ads: [any YandexMobileAds.RetailMediaAd] { get }
+  @_spi(RetailMedia) func bind(to containerView: YandexMobileAds.RetailMediaAdView) throws
+}
+@_spi(RetailMedia) public protocol RetailMediaAd : AnyObject {
+  @_spi(RetailMedia) var adType: YandexMobileAds.RetailMediaAdType { get }
+  @_spi(RetailMedia) var delegate: (any YandexMobileAds.RetailMediaAdDelegate)? { get set }
+  @_spi(RetailMedia) var info: Swift.String? { get }
+  @_spi(RetailMedia) var offerID: Swift.String? { get }
+  @_spi(RetailMedia) func adAssets() -> YandexMobileAds.RetailMediaAssets
+  @_spi(RetailMedia) func bind(with adView: YandexMobileAds.RetailMediaAdView) throws
+}
+@_spi(RetailMedia) public protocol RetailMediaAdDelegate : AnyObject {
+  @_spi(RetailMedia) func retailMediaAdDidClick(_ ad: any YandexMobileAds.RetailMediaAd)
+  @_spi(RetailMedia) func retailMediaAdWillLeaveApplication(_ ad: any YandexMobileAds.RetailMediaAd)
+  @_spi(RetailMedia) func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, willPresentScreen viewController: UIKit.UIViewController?)
+  @_spi(RetailMedia) func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, didDismissScreen viewController: UIKit.UIViewController?)
+  @_spi(RetailMedia) func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+  @_spi(RetailMedia) func close(_ ad: any YandexMobileAds.RetailMediaAd)
+}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaAdDelegate {
+  @_spi(RetailMedia) public func retailMediaAdDidClick(_ ad: any YandexMobileAds.RetailMediaAd)
+  @_spi(RetailMedia) public func retailMediaAdWillLeaveApplication(_ ad: any YandexMobileAds.RetailMediaAd)
+  @_spi(RetailMedia) public func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, willPresentScreen viewController: UIKit.UIViewController?)
+  @_spi(RetailMedia) public func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, didDismissScreen viewController: UIKit.UIViewController?)
+  @_spi(RetailMedia) public func retailMediaAd(_ ad: any YandexMobileAds.RetailMediaAd, didTrackImpressionWith impressionData: (any YandexMobileAds.ImpressionData)?)
+  @_spi(RetailMedia) public func close(_ ad: any YandexMobileAds.RetailMediaAd)
+}
+@_spi(RetailMedia) public class RetailMediaAdRequestConfiguration {
+  @_spi(RetailMedia) public var adUnitID: Swift.String
+  @_spi(RetailMedia) public var age: Foundation.NSNumber?
+  @_spi(RetailMedia) public var contextQuery: Swift.String?
+  @_spi(RetailMedia) public var contextTags: [Swift.String]?
+  @_spi(RetailMedia) public var gender: Swift.String?
+  @_spi(RetailMedia) public var location: CoreLocation.CLLocation?
+  @_spi(RetailMedia) public var adTheme: YandexMobileAds.AdTheme
+  @_spi(RetailMedia) public var biddingData: Swift.String?
+  @_spi(RetailMedia) public var readyResponse: Swift.String?
+  @_spi(RetailMedia) public var parameters: [Swift.String : Swift.String]?
+  @_spi(RetailMedia) public var shouldLoadImagesAutomatically: Swift.Bool
+  @_spi(RetailMedia) public init(adUnitID: Swift.String)
+  @_spi(RetailMedia) @objc deinit
+}
+@_spi(RetailMedia) public enum RetailMediaAdType : Swift.Sendable {
+  @_spi(RetailMedia) case content
+  @_spi(RetailMedia) case appInstall
+  @_spi(RetailMedia) case media
+  @_spi(RetailMedia) case productPromo
+  @_spi(RetailMedia) public static func == (a: YandexMobileAds.RetailMediaAdType, b: YandexMobileAds.RetailMediaAdType) -> Swift.Bool
+  @_spi(RetailMedia) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(RetailMedia) public var hashValue: Swift.Int {
+    @_spi(RetailMedia) get
+  }
+}
+@_spi(RetailMedia) @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class RetailMediaAdView : UIKit.UIView {
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var ageLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var bodyLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var callToActionButton: UIKit.UIButton? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var domainLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var faviconImageView: UIKit.UIImageView? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var feedbackButton: UIKit.UIButton? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var iconImageView: UIKit.UIImageView? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var priceLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var ratingView: (any UIKit.UIView & YandexMobileAds.Rating)? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var reviewCountLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var sponsoredLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var titleLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var warningLabel: UIKit.UILabel? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var customAssets: [YandexMobileAds.RetailMediaCustomAsset]? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency open var mediaView: YandexMobileAds.CustomMediaView? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency public var ad: (any YandexMobileAds.RetailMediaAd)? {
+    get
+  }
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_spi(RetailMedia) @available(*, unavailable)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_spi(RetailMedia) @objc deinit
+  @_spi(RetailMedia) @_Concurrency.MainActor @preconcurrency @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+}
+@_spi(RetailMedia) @_hasMissingDesignatedInitializers public class RetailMediaAssets {
+  @_spi(RetailMedia) convenience public init()
+  @_spi(RetailMedia) public var age: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var body: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var callToAction: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var domain: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var favicon: YandexMobileAds.NativeAdImage? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var feedbackAvailable: Swift.Bool {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var icon: YandexMobileAds.NativeAdImage? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var image: YandexMobileAds.NativeAdImage? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var media: YandexMobileAds.NativeAdMedia? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var price: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var rating: Foundation.NSNumber? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var reviewCount: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var sponsored: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var title: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var warning: Swift.String? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) @objc deinit
+}
+@_spi(RetailMedia) @_hasMissingDesignatedInitializers public class RetailMediaCustomAsset {
+  @_spi(RetailMedia) weak public var view: UIKit.UIView? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) public var clickHandler: ((UIKit.UIView) -> Swift.Void)? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) convenience public init(view: UIKit.UIView, type: Swift.String, clickHandler: ((UIKit.UIView) -> Swift.Void)?)
+  @_spi(RetailMedia) @objc deinit
+}
+@_spi(RetailMedia) public enum RetailMediaErrorCode : Swift.Int, Swift.Sendable {
+  @_spi(RetailMedia) case noViewForAsset
+  @_spi(RetailMedia) case invalidViewForBinding
+  @_spi(RetailMedia) public init?(rawValue: Swift.Int)
+  @_spi(RetailMedia) public typealias RawValue = Swift.Int
+  @_spi(RetailMedia) public var rawValue: Swift.Int {
+    @_spi(RetailMedia) get
+  }
+}
+@_spi(RetailMedia) @_hasMissingDesignatedInitializers public class RetailMediaLoader {
+  @_spi(RetailMedia) weak public var delegate: (any YandexMobileAds.RetailMediaLoaderDelegate)? {
+    @_spi(RetailMedia) get
+    @_spi(RetailMedia) set
+  }
+  @_spi(RetailMedia) convenience public init()
+  @_spi(RetailMedia) public func loadAd(with requestConfiguration: YandexMobileAds.RetailMediaAdRequestConfiguration)
+  @_spi(RetailMedia) @objc deinit
+}
+@_spi(RetailMedia) public protocol RetailMediaLoaderDelegate : ObjectiveC.NSObjectProtocol {
+  @_spi(RetailMedia) func retailMediaLoader(_ loader: YandexMobileAds.RetailMediaLoader, didLoad retailMedia: any YandexMobileAds.RetailMedia)
+  @_spi(RetailMedia) func retailMediaLoader(_ loader: YandexMobileAds.RetailMediaLoader, didFailLoadingWithError error: any Swift.Error)
+}
+extension YandexMobileAds.AdErrorCode : Swift.Equatable {}
+extension YandexMobileAds.AdErrorCode : Swift.Hashable {}
+extension YandexMobileAds.AdErrorCode : Swift.RawRepresentable {}
+extension YandexMobileAds.AdTheme : Swift.Equatable {}
+extension YandexMobileAds.AdTheme : Swift.Hashable {}
+extension YandexMobileAds.AdTheme : Swift.RawRepresentable {}
+extension YandexMobileAds.AdType : Swift.Equatable {}
+extension YandexMobileAds.AdType : Swift.Hashable {}
+extension YandexMobileAds.AdType : Swift.RawRepresentable {}
+extension YandexMobileAds.ConsentManagementPlatformDebugParameters.Geography : Swift.Equatable {}
+extension YandexMobileAds.ConsentManagementPlatformDebugParameters.Geography : Swift.Hashable {}
+extension YandexMobileAds.ConsentManagementPlatformDebugParameters.Geography : Swift.RawRepresentable {}
+extension YandexMobileAds.SizeConstraintType : Swift.Equatable {}
+extension YandexMobileAds.SizeConstraintType : Swift.Hashable {}
+extension YandexMobileAds.SizeConstraintType : Swift.RawRepresentable {}
+extension YandexMobileAds.NativeAdType : Swift.Equatable {}
+extension YandexMobileAds.NativeAdType : Swift.Hashable {}
+extension YandexMobileAds.NativeAdType : Swift.RawRepresentable {}
+extension YandexMobileAds.NativeErrorCode : Swift.Equatable {}
+extension YandexMobileAds.NativeErrorCode : Swift.Hashable {}
+extension YandexMobileAds.NativeErrorCode : Swift.RawRepresentable {}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaAdType : Swift.Equatable {}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaAdType : Swift.Hashable {}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaErrorCode : Swift.Equatable {}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaErrorCode : Swift.Hashable {}
+@_spi(RetailMedia) extension YandexMobileAds.RetailMediaErrorCode : Swift.RawRepresentable {}

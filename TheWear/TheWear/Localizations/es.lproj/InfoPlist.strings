@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear utilizará una geolocalización para obtener las previsiones meteorológicas más precisas.";
 NSLocationUsageDescription = "TheWear utilizará una geolocalización para obtener las previsiones meteorológicas más precisas.";
 NSLocationWhenInUseUsageDescription = "TheWear utilizará una geolocalización para obtener las previsiones meteorológicas más precisas.";
+NSUserTrackingUsageDescription = "Nos ayuda a ofrecerte anuncios personalizados según tus intereses.";

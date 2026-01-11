@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear peab teadma teie asukohta, et pakkuda kõige täpsemat prognoosi.";
 NSLocationUsageDescription = "TheWear peab teadma teie asukohta, et pakkuda kõige täpsemat prognoosi.";
 NSLocationWhenInUseUsageDescription = "TheWear peab teadma teie asukohta, et pakkuda kõige täpsemat prognoosi.";
+NSUserTrackingUsageDescription = "See aitab meil pakkuda teile huvisid arvestavaid isikupärastatud reklaame.";

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BackgroundFetchService.shared.register()
         UD.shared.configureIfNeeded()
         AnalyticsService.shared.sendEvent(.appOpened)
+        AdsService.setup()
         return true
     }
     

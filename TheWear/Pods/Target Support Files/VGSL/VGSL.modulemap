@@ -1,0 +1,6 @@
+framework module VGSL {
+  umbrella header "VGSL-umbrella.h"
+
+  export *
+  module * { export * }
+}

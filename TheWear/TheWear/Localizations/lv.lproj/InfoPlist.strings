@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "Lai nodrošinātu visprecīzāko prognozi, TheWear ir jāzina jūsu atrašanās vieta.";
 NSLocationUsageDescription = "Lai nodrošinātu visprecīzāko prognozi, TheWear ir jāzina jūsu atrašanās vieta.";
 NSLocationWhenInUseUsageDescription = "Lai nodrošinātu visprecīzāko prognozi, TheWear ir jāzina jūsu atrašanās vieta.";
+NSUserTrackingUsageDescription = "Tas palīdz mums piedāvāt jums personalizētas reklāmas, balstoties uz jūsu interesēm.";

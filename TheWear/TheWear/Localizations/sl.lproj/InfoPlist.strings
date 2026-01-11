@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear mora poznati vašo lokacijo, da zagotovi najbolj natančno napoved.";
 NSLocationUsageDescription = "TheWear mora poznati vašo lokacijo, da zagotovi najbolj natančno napoved.";
 NSLocationWhenInUseUsageDescription = "TheWear mora poznati vašo lokacijo, da zagotovi najbolj natančno napoved.";
+NSUserTrackingUsageDescription = "To nam pomaga zagotavljati prilagojene oglase na podlagi vaših interesov.";

@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear needs to know your location to provide the most accurate forecast.";
 NSLocationUsageDescription = "TheWear needs to know your location to provide the most accurate forecast.";
 NSLocationWhenInUseUsageDescription = "TheWear needs to know your location to provide the most accurate forecast.";
+NSUserTrackingUsageDescription = "It helps us provide you with personalised ads based on your interests.";

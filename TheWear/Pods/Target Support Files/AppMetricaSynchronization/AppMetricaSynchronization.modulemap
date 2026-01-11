@@ -1,0 +1,6 @@
+framework module AppMetricaSynchronization {
+  umbrella header "AppMetricaSynchronization-umbrella.h"
+
+  export *
+  module * { export * }
+}

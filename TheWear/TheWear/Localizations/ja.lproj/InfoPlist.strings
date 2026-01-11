@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "最も正確な予測を提供するには、TheWear が現在地を知る必要があります。";
 NSLocationUsageDescription = "最も正確な予測を提供するには、TheWear が現在地を知る必要があります。";
 NSLocationWhenInUseUsageDescription = "最も正確な予測を提供するには、TheWear が現在地を知る必要があります。";
+NSUserTrackingUsageDescription = "これにより、お客様の興味に基づいたパーソナライズされた広告を提供できます。";

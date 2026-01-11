@@ -8,3 +8,4 @@
 NSLocationAlwaysUsageDescription = "TheWear turi žinoti jūsų vietą, kad pateiktų tiksliausią prognozę.";
 NSLocationUsageDescription = "TheWear turi žinoti jūsų vietą, kad pateiktų tiksliausią prognozę.";
 NSLocationWhenInUseUsageDescription = "TheWear turi žinoti jūsų vietą, kad pateiktų tiksliausią prognozę.";
+NSUserTrackingUsageDescription = "Tai padeda mums pateikti jums personalizuotus skelbimus pagal jūsų interesus.";
