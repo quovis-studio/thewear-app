@@ -35,6 +35,7 @@
 		5030DAB7289EE254000E1B21 /* TimePickerView+Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030DAB6289EE254000E1B21 /* TimePickerView+Behavior.swift */; };
 		5030DABA289EF944000E1B21 /* TimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030DAB9289EF944000E1B21 /* TimeTextField.swift */; };
 		503889382F387263006A6213 /* APIKeys.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 503889372F387263006A6213 /* APIKeys.xcconfig */; };
+		5038893D2F387FE9006A6213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038893C2F387FE9006A6213 /* LaunchScreen.storyboard */; };
 		50406B712912BC8C00306D24 /* Man+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B702912BC8C00306D24 /* Man+Rate.swift */; };
 		50406B732912BD7E00306D24 /* Woman+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B722912BD7E00306D24 /* Woman+Rate.swift */; };
 		50406B752915EAD700306D24 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B742915EAD700306D24 /* RateView.swift */; };
@@ -52,7 +53,6 @@
 		505A4B2F28F65E190088CDE7 /* AppearanceItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A4B2E28F65E190088CDE7 /* AppearanceItemCollectionViewCell.swift */; };
 		505A4B3128F78F880088CDE7 /* AppearanceView+Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A4B3028F78F880088CDE7 /* AppearanceView+Behavior.swift */; };
 		505A4B3328F849800088CDE7 /* AppearanceView+ConfigurePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A4B3228F849800088CDE7 /* AppearanceView+ConfigurePersonView.swift */; };
-		505F79E12F15C279007C21F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505F79E02F15C279007C21F9 /* LaunchScreen.storyboard */; };
 		506DE1F3288C4CC900388772 /* CalendarAndLocaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DE1F2288C4CC900388772 /* CalendarAndLocaleService.swift */; };
 		506DE1FB288CE2F100388772 /* UnitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DE1FA288CE2F100388772 /* UnitViewModel.swift */; };
 		506DE205288DACA300388772 /* GestureRecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DE204288DACA300388772 /* GestureRecognizers.swift */; };
@@ -483,6 +483,7 @@
 		5030DAE328A67DD7000E1B21 /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5030DAE428A67E01000E1B21 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/Localizable.strings; sourceTree = "<group>"; };
 		503889372F387263006A6213 /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
+		5038893C2F387FE9006A6213 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50406B702912BC8C00306D24 /* Man+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Man+Rate.swift"; sourceTree = "<group>"; };
 		50406B722912BD7E00306D24 /* Woman+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Woman+Rate.swift"; sourceTree = "<group>"; };
 		50406B742915EAD700306D24 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
@@ -529,7 +530,6 @@
 		505A4B2E28F65E190088CDE7 /* AppearanceItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		505A4B3028F78F880088CDE7 /* AppearanceView+Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppearanceView+Behavior.swift"; sourceTree = "<group>"; };
 		505A4B3228F849800088CDE7 /* AppearanceView+ConfigurePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppearanceView+ConfigurePersonView.swift"; sourceTree = "<group>"; };
-		505F79E02F15C279007C21F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		506DE1F2288C4CC900388772 /* CalendarAndLocaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAndLocaleService.swift; sourceTree = "<group>"; };
 		506DE1FA288CE2F100388772 /* UnitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitViewModel.swift; sourceTree = "<group>"; };
 		506DE204288DACA300388772 /* GestureRecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizers.swift; sourceTree = "<group>"; };
@@ -1548,7 +1548,7 @@
 				BEBF246E254DCCAD00F106A9 /* AppDelegate.swift */,
 				BEBF2477254DCCB200F106A9 /* Assets.xcassets */,
 				BEBF247C254DCCB200F106A9 /* Info.plist */,
-				505F79E02F15C279007C21F9 /* LaunchScreen.storyboard */,
+				5038893C2F387FE9006A6213 /* LaunchScreen.storyboard */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -2117,10 +2117,10 @@
 				BEC614E726BCA5F200EAF53B /* Montserrat-Black.ttf in Resources */,
 				BEBF2478254DCCB200F106A9 /* Assets.xcassets in Resources */,
 				A73270CE2552C87500CC91B8 /* Localizable.strings in Resources */,
-				505F79E12F15C279007C21F9 /* LaunchScreen.storyboard in Resources */,
 				BEC614E826BCA5F200EAF53B /* Montserrat-ExtraLight.ttf in Resources */,
 				BEC614EA26BCA5F200EAF53B /* Montserrat-Thin.ttf in Resources */,
 				BEC614F026BCA5F200EAF53B /* Montserrat-Light.ttf in Resources */,
+				5038893D2F387FE9006A6213 /* LaunchScreen.storyboard in Resources */,
 				BEC614F526BCA5F200EAF53B /* Montserrat-Medium.ttf in Resources */,
 				BEC614FA26BCA93500EAF53B /* Montserrat-Bold.ttf in Resources */,
 			);
