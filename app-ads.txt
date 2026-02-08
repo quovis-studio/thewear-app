@@ -16,7 +16,7 @@ improvedigital.com, 2534, RESELLER
 openx.com, 540679900, RESELLER, 6a698e2ec38604c6
 betweendigital.com, 44727, RESELLER
 dauup.com, 34191, RESELLER, 4daba13e2b0dfd92
-yandex.com, 102620331, DIRECT
+yandex.com, 320343309, DIRECT
 adform.com, 3317, RESELLER
 adagio.io, 1558, RESELLER
 start.io, 146282053, RESELLER
@@ -26,6 +26,7 @@ themediagrid.com, FWN84J, RESELLER, 35d5010d7789b49d
 rubiconproject.com, 25978, RESELLER, 0bfd66d529a55807
 xandr.com, 15278, RESELLER, f5ab79cb980f11d1
 smaato.com, 1100059282, RESELLER, 07bcf65f187117b4
+video.unrulymedia.com, 630415254, RESELLER
 pubmatic.com, 161162, RESELLER, 5d62403b186f2ace
 lunamedia.io, 1yoxx3u24n2zgmg3fqgxniuwcg9qww5a, RESELLER, 524ecb396915caaf
 lijit.com, 273644, RESELLER, fafdf38b16bf6b2b
@@ -74,16 +75,15 @@ bigo.sg, 885, RESELLER
 openx.com, 561470659, RESELLER, 6a698e2ec38604c6
 adagio.io, 1522, RESELLER
 conversantmedia.com, 100886, RESELLER, 03113cd04947736d
-video.unrulymedia.com, 718585545, RESELLER
 adingenious.com, 75075, RESELLER
 smartadserver.com, 4568, RESELLER, 060d053dcf45cbf3
 opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3
 openx.com, 538959099, RESELLER, 6a698e2ec38604c6
+yango-ads.com, 320343309, DIRECT
 taurusx.com, 80612, RESELLER
 lijit.com, 488437, RESELLER, fafdf38b16bf6b2b
 pubnative.net, 1008289, RESELLER, d641df8625486a7b
 appnexus.com, 1019, RESELLER, f5ab79cb980f11d1
-yango-ads.com, 102620331, DIRECT
 thebrave.io, 1234764, RESELLER, c25b2154543746ac
 screenil.com, 554156, RESELLER
 lijit.com, 558045, RESELLER, fafdf38b16bf6b2b
