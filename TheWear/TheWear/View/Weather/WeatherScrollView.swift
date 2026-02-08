@@ -38,7 +38,7 @@ class WeatherView: UIView {
     
     lazy var adView: AdView = {
         let adSize = BannerAdSize.inlineSize(withWidth: hoursSize.width, maxHeight: isIphone ? hoursSize.height : 300)
-        let adView = AdView(adUnitID: "R-M-18399035-2", adSize: adSize)
+        let adView = AdView(adUnitID: "R-M-18675788-1", adSize: adSize)
         adView.layer.cornerRadius = Size.padding.medium
         adView.layer.masksToBounds = true
         adView.isHidden = true

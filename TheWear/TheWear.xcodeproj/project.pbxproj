@@ -34,6 +34,7 @@
 		5030DAB5289EE12A000E1B21 /* SettingsView+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030DAB4289EE12A000E1B21 /* SettingsView+Keyboard.swift */; };
 		5030DAB7289EE254000E1B21 /* TimePickerView+Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030DAB6289EE254000E1B21 /* TimePickerView+Behavior.swift */; };
 		5030DABA289EF944000E1B21 /* TimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030DAB9289EF944000E1B21 /* TimeTextField.swift */; };
+		503889382F387263006A6213 /* APIKeys.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 503889372F387263006A6213 /* APIKeys.xcconfig */; };
 		50406B712912BC8C00306D24 /* Man+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B702912BC8C00306D24 /* Man+Rate.swift */; };
 		50406B732912BD7E00306D24 /* Woman+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B722912BD7E00306D24 /* Woman+Rate.swift */; };
 		50406B752915EAD700306D24 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50406B742915EAD700306D24 /* RateView.swift */; };
@@ -481,6 +482,7 @@
 		5030DAE228A67DAD000E1B21 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5030DAE328A67DD7000E1B21 /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5030DAE428A67E01000E1B21 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/Localizable.strings; sourceTree = "<group>"; };
+		503889372F387263006A6213 /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
 		50406B702912BC8C00306D24 /* Man+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Man+Rate.swift"; sourceTree = "<group>"; };
 		50406B722912BD7E00306D24 /* Woman+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Woman+Rate.swift"; sourceTree = "<group>"; };
 		50406B742915EAD700306D24 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
@@ -1901,6 +1903,7 @@
 				5030DA962899E9C1000E1B21 /* CommentService */,
 				50B9A6B528A95AD0007F8761 /* PersonService */,
 				50DA4B6428274A24009AB40C /* UserDefaults */,
+				503889372F387263006A6213 /* APIKeys.xcconfig */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2108,6 +2111,7 @@
 			files = (
 				BEC614F326BCA5F200EAF53B /* Montserrat-Regular.ttf in Resources */,
 				BEC614ED26BCA5F200EAF53B /* OFL.txt in Resources */,
+				503889382F387263006A6213 /* APIKeys.xcconfig in Resources */,
 				BEC614F826BCA5F200EAF53B /* Montserrat-SemiBold.ttf in Resources */,
 				50406B7A29161CBA00306D24 /* InfoPlist.strings in Resources */,
 				BEC614E726BCA5F200EAF53B /* Montserrat-Black.ttf in Resources */,
@@ -2713,6 +2717,7 @@
 		};
 		BEBF247D254DCCB200F106A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 503889372F387263006A6213 /* APIKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2777,6 +2782,7 @@
 		};
 		BEBF247E254DCCB200F106A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 503889372F387263006A6213 /* APIKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2842,7 +2848,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RSKGM45L96;
+				DEVELOPMENT_TEAM = 99F33CAX5W;
 				INFOPLIST_FILE = TheWear/System/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2850,7 +2856,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.11;
+				MARKETING_VERSION = 3.2.12;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.thewear.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2861,14 +2867,14 @@
 		};
 		BEBF2481254DCCB200F106A9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B19936851CFE7DCCFC69DF23 /* Pods-TheWear.release.xcconfig */;
+			baseConfigurationReference = A777A2CFF34311995DAE0A41 /* Pods-TheWear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RSKGM45L96;
+				DEVELOPMENT_TEAM = 99F33CAX5W;
 				INFOPLIST_FILE = TheWear/System/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2876,7 +2882,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.11;
+				MARKETING_VERSION = 3.2.12;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.thewear.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
